@@ -1,6 +1,0 @@
-root
-root
-3306
-project_dev
-
-

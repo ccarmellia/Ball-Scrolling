@@ -19,12 +19,6 @@ public class JDBCAdapter {
     private Vector rows;
     private ExcelReadDAO excelReadDAO = new ExcelReadDAOImpl();
 
-    /**
-     * @Description: 打开文件, 读取数据库初始化配置信息
-     * @Name: getParams
-     * @Param:[]
-     * @Return:void
-     */
     private void getParams(){
         try {
             System.out.println();
@@ -43,12 +37,7 @@ public class JDBCAdapter {
             System.err.println("读取文件数据错误！");
         }
     }
-    /**
-     * @Description: 构造函数
-     * @Name: JDBCAdapter
-     * @Param:[]
-     * @Return:
-     */
+
     public JDBCAdapter() throws SQLException, IOException, BiffException {
         getParams();
         if(!createDatebase()) connector();
@@ -59,12 +48,7 @@ public class JDBCAdapter {
             excelReadDAO.ReadExcel(conn, new File(this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"schedule.xls"), "insert schedule values(?,?,?,?,?,?,?);");
         }
     }
-    /**
-     * @Description:执行加载驱动程序、建立
-     * @Name:connector
-     * @Param:[]
-     * @Return:void
-     */
+
     public void connector(){
         try {
             java.sql.Driver driver = new com.mysql.cj.jdbc.Driver();
@@ -79,25 +63,14 @@ public class JDBCAdapter {
             System.err.println("连接字符串错误，或者语句对象错误！");
         }
     }
-    /**
-     * @Description: 创建并连接数据库，注意加载数据库jar连接jar
-     * @Name:createDatebase
-     * @Param:[]
-     * @Return:boolean
-     * @return
-     */
+
     public boolean tableIsEmplty(){
         Vector table1 = query("select * from schedule");
         Vector table2 = query("select * from player");
         Vector table3  = query("select * from team");
         return table1.isEmpty() & table2.isEmpty() & table3.isEmpty();
     }
-    /**
-     * @Description: 创建数据库
-     * @Name:createDatebase
-     * @Param:[]
-     * @Return:boolean
-     */
+
     public boolean createDatebase() throws SQLException {
         boolean result = false;
         try{
@@ -110,7 +83,7 @@ public class JDBCAdapter {
             if(conn!=null) {System.out.println("sucess connect to mysql");}
             Vector exist = query("SELECT count(*) TABLES, table_schema FROM information_schema.TABLES where table_schema = '"+DatabaseName+"' GROUP BY table_schema;");
             if(exist.size() == 0){
-                exeSQLSript(url,";",this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"footballsys.sql"); //执行脚本
+                exeSQLSript(url,";",this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"bowlingballsys.sql"); //执行脚本
                 exeSQLSript(url,"$",this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"Trigger.sql");
                 result = true;
             }
@@ -119,12 +92,7 @@ public class JDBCAdapter {
         }
         return  result;
     }
-    /**
-     * @Description: 利用 Ant 的SQL Task来实现执行SQL 脚本的功能。ant 包中的 SQLExec类的扩展，此时需要将ant 包(ant.jar)导入
-     * @Name: exeSQLSript
-     * @Param: [url, delimiter, sqlAddress]
-     * @Return:void
-     */
+
     public void exeSQLSript(String url, String delimiter, String sqlAddress){
         SQLExec sqlExec = new SQLExec();
         String mysqlDriver = "com.mysql.cj.jdbc.Driver";
@@ -136,17 +104,12 @@ public class JDBCAdapter {
         sqlExec.setSrc(new File(sqlAddress));
         sqlExec.setOnerror((SQLExec.OnError)(EnumeratedAttribute.getInstance(SQLExec.OnError.class, "abort")));
         sqlExec.setPrint(true);
-        sqlExec.setOutput(new File(this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"footballsys.out"));
+        sqlExec.setOutput(new File(this.getClass().getClassLoader().getResource("cn/edu/ncu/java/otherfiles").getPath()+"bowlingballsys.out"));
         sqlExec.setDelimiter(delimiter);
         sqlExec.setProject(new Project());
         sqlExec.execute();
     }
-    /**
-     * @Description: 关闭连接对象
-     * @Name: closeConnection
-     * @Param:[]
-     * @Return:void
-     */
+
     public void closeConnection(){
         if(conn != null){
             try {
@@ -157,12 +120,7 @@ public class JDBCAdapter {
             conn = null;
         }
     }
-    /**
-     * @Description: 关闭语句对象
-     * @Name: closeStatement
-     * @Param:[]
-     * @Return:void
-     */
+
     public void closeStatement(){
         if(statement != null){
             try {
@@ -174,12 +132,7 @@ public class JDBCAdapter {
             statement = null;
         }
     }
-    /**
-     * @Description: 执行insert操作
-     * @Name: insert
-     * @Param: [inserting]
-     * @Return:void
-     */
+
     public void insert(String inserting){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");
@@ -192,12 +145,7 @@ public class JDBCAdapter {
             System.out.println("数据插入错误！");
         }
     }
-    /**
-     * @Description: 执行delete操作
-     * @Name: delete
-     * @Param: [deleting]
-     * @Return:void
-     */
+
     public void delete(String deleting){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");
@@ -209,12 +157,7 @@ public class JDBCAdapter {
             System.out.println("数据删除错误！");
         }
     }
-    /**
-     * @Description: 执行update操作
-     * @Name: update
-     * @Param: [updating]
-     * @Return:void
-     */
+
     public void update(String updating){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");
@@ -226,12 +169,7 @@ public class JDBCAdapter {
             System.out.println("数据更新错误！");
         }
     }
-    /**
-     * @Description: 查询操作, 输入参数是SQL的字符串,返回结果是一个Vector的二维数组
-     * @Name: query
-     * @Param: [selecting]
-     * @Return:java.util.Vector
-     */
+
     public Vector query(String selecting){
         if (conn==null || statement==null){
             System.out.println("没有建立数据库连接！");
@@ -263,12 +201,7 @@ public class JDBCAdapter {
         }
         return rows;
     }
-    /**
-     * @Description: 关闭结果集对象
-     * @Name: closeResultSet
-     * @Param:[]
-     * @Return:void
-     */
+
     public  void closeResultSet() {
         if (res != null) {
             try {
@@ -281,41 +214,21 @@ public class JDBCAdapter {
             }
         }
     }
-    /**
-     * @Description: 关闭各个对象, 释放内存
-     * @Name: close
-     * @Param:[]
-     * @Return:void
-     */
+
     public void close(){
         this.closeResultSet();
         this.closeStatement();
         this.closeConnection();
     }
-    /**
-     * @Description: 事务的提交操作
-     * @Name: commit
-     * @Param:[]
-     * @Return:void
-     */
+
     public void commit() throws SQLException{
         conn.commit();
     }
-    /**
-     * @Description: 事务的回滚操作
-     * @Name: rollback
-     * @Param:[]
-     * @Return:void
-     */
+
     public void rollback() throws SQLException{
         conn.rollback();
     }
-    /**
-     * @Description: 专用于比赛过程插入,由于在界面中按下确定按钮之后,需要执行多次插入操作,每次都提示插入成功,并不合理,所以这里的插入操作成功之后不进行提示
-     * @Name: insert2
-     * @Param: [inserting]
-     * @Return:void
-     */
+
     public void insert2(String inserting){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");
@@ -325,12 +238,7 @@ public class JDBCAdapter {
         }catch(Exception ex){
         }
     }
-    /**
-     * @Description: 执行update操作
-     * @Name: update2
-     * @Param: [updating]
-     * @Return:void
-     */
+
     public void update2(String updating){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");
@@ -341,12 +249,7 @@ public class JDBCAdapter {
             System.out.println("数据修改错误！");
         }
     }
-    /**
-     * @Description: 执行delete操作
-     * @Name: delete2
-     * @Param: [deleting]
-     * @Return:void
-     */
+
     public void delete2(String deleting){
         if(conn == null || statement == null){
             System.out.println("没有建立数据库连接！");

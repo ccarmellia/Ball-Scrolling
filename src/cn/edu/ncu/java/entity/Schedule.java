@@ -1,6 +1,5 @@
 package cn.edu.ncu.java.entity;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Schedule {
@@ -84,8 +83,8 @@ public class Schedule {
                 "比赛时间=" + Time +
                 ", 主队='" + HomeTeam + '\'' +
                 ", 客队='" + visitingTeam + '\'' +
-                ", 主队进球数='" + HomeScore + '\'' +
-                ", 客队进球数='" + VisitingScore + '\'' +
+                ", 主队击球数='" + HomeScore + '\'' +
+                ", 客队击球数='" + VisitingScore + '\'' +
                 ", 轮数=" + turnone +
                 ", 组别='" + turntwo + '\'' +
                 '}';

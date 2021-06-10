@@ -13,46 +13,14 @@ import java.util.Vector;
 public class ScoreOfTeamService {
     private ScoreOfTeamDAO scoreOfTeamDAO;
     private JDBCAdapter jdbc;
-    /**
-     * @Description: 构造方法
-     * @Name: ScoreOfTeamService
-     * @Param:[]
-     * @Return:
-     */
+
     public ScoreOfTeamService() throws SQLException, IOException, BiffException {
-        this.scoreOfTeamDAO = new ScoreOfTeamDAOImpl();
+        this.scoreOfTeamDAO = new ScoreOfTeamDAOImpl() {
+        };
         this.jdbc = new JDBCAdapter();
     }
-    /**
-     * @Description: 显示女子组的球队积分榜
-     * @Name: showAllScoreOfTeamForFemale
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ScoreOfTeam>
-     */
-    public ArrayList<ScoreOfTeam> showAllScoreOfTeamForFemale(){
-        Vector table = scoreOfTeamDAO.showAllScoreOfTeamForFemale(jdbc);
-        return showAllScoreOfTeam(table);
-    }
-    /**
-     * @Description: 显示成年组的球队积分榜
-     * @Name: showAllScoreOfTeamForAdult
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ScoreOfTeam>
-     */
-    public ArrayList<ScoreOfTeam> showAllScoreOfTeamForAdult(){
-        Vector table = scoreOfTeamDAO.showAllScoreOfTeamForAdult(jdbc);
-        return showAllScoreOfTeam(table);
-    }
-    /**
-     * @Description: 显示男子组（包括男子甲组和男子乙组）的球队积分榜
-     * @Name: showAllScoreOfTeamForMale
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ScoreOfTeam>
-     */
-    public ArrayList<ScoreOfTeam> showAllScoreOfTeamForMale(){
-        Vector table = scoreOfTeamDAO.showAllScoreOfTeamForMale(jdbc);
-        return showAllScoreOfTeam(table);
-    }
+
+
     /**
      * @Description: 被方法showAllScoreOfTeamForAdult()、showAllScoreOfTeamForMale()和
      *               showAllScoreOfTeamForFemale()调用

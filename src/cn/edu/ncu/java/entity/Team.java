@@ -1,6 +1,5 @@
 package cn.edu.ncu.java.entity;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Team {
@@ -77,7 +76,7 @@ public class Team {
         return "Team{" +
                 "队名='" + name + '\'' +
                 ", 教练='" + coach + '\'' +
-                ", 所属大学或学院='" + college + '\'' +
+                ", 所属大学='" + college + '\'' +
                 ", 成立时间=" + setTime +
                 '}';
     }

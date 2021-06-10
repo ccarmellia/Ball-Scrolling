@@ -21,9 +21,6 @@ public class ScheduleService {
     }
     /**
      * @Description: 显示所有赛程信息
-     * @Name: showAllSchedule
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.Schedule>
      */
     public ArrayList<Schedule> showAllSchedule(){
         Vector table = scheduleDAO.showAllSchedule(this.jdbc);

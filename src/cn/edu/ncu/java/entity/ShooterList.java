@@ -84,7 +84,7 @@ public class ShooterList {
                 ", 姓名='" + name + '\'' +
                 ", 队名='" + TeamName + '\'' +
                 ", 编号='" + numbers + '\'' +
-                ", 进球数=" + goals +
+                ", 击球数=" + goals +
                 ", 红牌=" + RedCard +
                 ", 黄牌=" + YelllowCard +
                 '}';

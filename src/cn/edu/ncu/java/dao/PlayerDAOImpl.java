@@ -9,9 +9,6 @@ import java.util.Vector;
 public class PlayerDAOImpl extends Component implements PlayerDAO {
     /**
      * @Description: 插入队员信息
-     * @Name: insertPlayer
-     * @Param: [player, jdbc]
-     * @Return:void
      */
     @Override
     public void insertPlayer(Player player,JDBCAdapter jdbc) {
@@ -37,9 +34,6 @@ public class PlayerDAOImpl extends Component implements PlayerDAO {
     }
     /**
      * @Description: 删除某一队员信息
-     * @Name: deletePlayer
-     * @Param: [player, jdbc]
-     * @Return:void
      */
     @Override
     public void deletePlayer(Player player,JDBCAdapter jdbc) {
@@ -53,9 +47,6 @@ public class PlayerDAOImpl extends Component implements PlayerDAO {
     }
     /**
      * @Description: 更新队员信息
-     * @Name: updatePlayer
-     * @Param: [newteamname, newnumber, player, jdbc]
-     * @Return:void
      */
     @Override
     public void updatePlayer(String newteamname,String newnumber,Player player,JDBCAdapter jdbc) {
@@ -83,9 +74,6 @@ public class PlayerDAOImpl extends Component implements PlayerDAO {
     }
     /**
      * @Description: 查询队员信息
-     * @Name: findPlayer
-     * @Param: [team, numbers, jdbc]
-     * @Return:java.util.Vector
      */
     @Override
     public Vector findPlayer(String team, String numbers,JDBCAdapter jdbc) {
@@ -95,9 +83,6 @@ public class PlayerDAOImpl extends Component implements PlayerDAO {
     }
     /**
      * @Description: 显示所有队员信息
-     * @Name: showAllPlayer
-     * @Param: [jdbc]
-     * @Return:java.util.Vector
      */
     @Override
     public Vector showAllPlayer(JDBCAdapter jdbc) {

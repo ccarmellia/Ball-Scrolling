@@ -23,36 +23,8 @@ public class ShooterListService {
         this.shooterListDAO = new ShooterListDAOImpl();
         this.jdbc = new JDBCAdapter();
     }
-    /**
-     * @Description: 显示女子组的射手榜
-     * @Name: showAllShooterListForFemale
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ShooterList>
-     */
-    public ArrayList<ShooterList> showAllShooterListForFemale(){
-        Vector table = shooterListDAO.showAllShooterListForFemale(jdbc);
-        return showAllShooterList(table);
-    }
-    /**
-     * @Description: 显示成年组的射手榜
-     * @Name: showAllShooterListForAdult
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ShooterList>
-     */
-    public ArrayList<ShooterList> showAllShooterListForAdult(){
-        Vector table = shooterListDAO.showAllShooterListForAdult(jdbc);
-        return showAllShooterList(table);
-    }
-    /**
-     * @Description: 显示男子组(包括男子甲组和男子乙组)的射手榜
-     * @Name: showAllShooterListForMale
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.ShooterList>
-     */
-    public ArrayList<ShooterList> showAllShooterListForMale(){
-        Vector table = shooterListDAO.showAllShooterListForMale(jdbc);
-        return showAllShooterList(table);
-    }
+
+
     /**
      * @Description: 被方法showAllShooterListForMale()、showAllShooterListForMale()和
      *               showAllShooterListForFemale()调用

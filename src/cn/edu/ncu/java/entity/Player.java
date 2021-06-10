@@ -1,6 +1,5 @@
 package cn.edu.ncu.java.entity;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Player {
@@ -131,7 +130,7 @@ public class Player {
                 ", 年龄=" + age +
                 ", 所属球队='" + team + '\'' +
                 ", 性别='" + gender + '\'' +
-                ", 位置='" + position + '\'' +
+                ", 职位='" + position + '\'' +
                 ", 编号='" + number + '\'' +
                 ", 身高='" + height + '\'' +
                 ", 体重='" + weight + '\'' +

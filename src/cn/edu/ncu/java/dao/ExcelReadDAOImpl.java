@@ -11,12 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 class ExcelReadDAOImpl implements ExcelReadDAO {
-    /**
-     * @Description: 读取excel数据表
-     * @Name: ReadExcel
-     * @Param: [con, path, inserting]
-     * @Return:void
-     */
     @Override
     public void ReadExcel(Connection con, File path,String inserting) throws IOException, BiffException {
         PreparedStatement pstatement;
@@ -24,7 +18,7 @@ class ExcelReadDAOImpl implements ExcelReadDAO {
         Sheet[] sheets = workbook.getSheets();
         if(sheets!=null) {
             for(Sheet sheet:sheets) {
-                int rows = sheet.getRows();         //获取行数
+                int rows = sheet.getRows();//获取行数
                 System.out.println(rows);
                 int cols = sheet.getColumns();      //获取列数
                 System.out.println(cols);
@@ -40,7 +34,6 @@ class ExcelReadDAOImpl implements ExcelReadDAO {
                         }
                         pstatement.executeUpdate();                         //执行sql语句插入内容
                     } catch (SQLException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }

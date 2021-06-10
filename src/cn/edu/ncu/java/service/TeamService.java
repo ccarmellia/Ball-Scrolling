@@ -24,9 +24,6 @@ public class TeamService {
     }
     /**
      * @Description: 显示所有队的信息
-     * @Name: showAllTeam
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.Team>
      */
     public ArrayList<Team> showAllTeam(){
         Vector table = teamDAO.showAllTeam(this.jdbc);
@@ -53,9 +50,6 @@ public class TeamService {
     }
     /**
      * @Description: 依据队名查找球队
-     * @Name: findTeam
-     * @Param: [teamname]
-     * @Return: cn.edu.ncu.java.entity.Team
      */
     public Team findTeam(String teamname){
         Vector table = teamDAO.findTeam(teamname,jdbc);
@@ -78,9 +72,6 @@ public class TeamService {
     }
     /**
      * @Description: 删除指定球队的信息
-     * @Name: deleteTeam
-     * @Param: [team]
-     * @Return:void
      */
     public void deleteTeam(Team team){
         System.out.println(team.toString());
@@ -88,9 +79,6 @@ public class TeamService {
     }
     /**
      * @Description: 插入球队信息
-     * @Name: insertTeam
-     * @Param: [team]
-     * @Return:void
      */
     public void insertTeam(Team team){
         System.out.println(team.toString());

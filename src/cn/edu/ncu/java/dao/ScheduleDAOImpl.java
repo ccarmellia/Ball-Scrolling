@@ -13,9 +13,6 @@ public class ScheduleDAOImpl implements ScheduleDAO{
     public void deleteSchedule(Schedule schedule, JDBCAdapter jdbc) { }
     /**
      * @Description: 显示所有赛程信息
-     * @Name: showAllSchedule
-     * @Param: [jdbc]
-     * @Return:java.util.Vector
      */
     @Override
     public Vector showAllSchedule(JDBCAdapter jdbc) {

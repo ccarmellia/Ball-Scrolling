@@ -21,9 +21,6 @@ public class PlayerManService {
     }
     /**
      * @Description: 显示所有队员
-     * @Name: showAllPlayer
-     * @Param:[]
-     * @Return: java.util.ArrayList<cn.edu.ncu.java.entity.Player>
      */
     public ArrayList<Player> showAllPlayer(){
         Vector table = playerDAO.showAllPlayer(this.jdbc);
@@ -51,9 +48,6 @@ public class PlayerManService {
     }
     /**
      * @Description: 查找队员信息
-     * @Name: findPlayer
-     * @Param: [team, numbers]
-     * @Return: cn.edu.ncu.java.entity.Player
      */
     public Player findPlayer(String team, String numbers){
         Vector table = playerDAO.findPlayer(team,numbers,jdbc);
@@ -77,9 +71,6 @@ public class PlayerManService {
     }
     /**
      * @Description: 删除队员信息
-     * @Name: deletePlayer
-     * @Param: [player]
-     * @Return:void
      */
     public void deletePlayer(Player player){
         System.out.println(player.toString());
@@ -87,9 +78,6 @@ public class PlayerManService {
     }
     /**
      * @Description: 插入队员信息
-     * @Name: insertPlayer
-     * @Param: [player]
-     * @Return:void
      */
     public void insertPlayer(Player player){
         System.out.println(player.toString());

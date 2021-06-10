@@ -10,7 +10,6 @@
  **/
 package cn.edu.ncu.java.view;
 
-import cn.edu.ncu.java.dao.JDBCAdapter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,13 +21,7 @@ import jxl.read.biff.BiffException;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * 〈一句话功能简述〉</br>
- * 〈dxgfsed 〉
- * @author 肖海军
- * @create 2019/10/31
- * @since 1.0.0
- **/
+
 public class Main extends Application {
 
 

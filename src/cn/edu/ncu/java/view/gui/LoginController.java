@@ -18,18 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- * 〈一句话功能简述〉</br> 
- * 〈fersrfew 〉
- * @author 肖海军
- * @create 2019/10/31
- * @since 1.0.0
- **/
+
 public class LoginController {// implements Initializable{//
-    @FXML
-    Button confirm;
+    @FXML Button confirm;
     @FXML AnchorPane root;
-    @FXML Button cancel;
+    //@FXML Button cancel;
     @FXML Button forget;
     @FXML
     PasswordField userPwd;
@@ -37,11 +30,13 @@ public class LoginController {// implements Initializable{//
     TextField userAccount;
     @FXML
     Label Account;
-    @FXML Label pwd;
+    @FXML
+    Label pwd;
     String name;
     String password;
 
    public void login(ActionEvent event) throws Exception {
+
        userAccount.setUserData("6109119099");//设置默认账号密码
        userPwd.setUserData("190321");
        confirm.setOnAction(event1 -> {
@@ -50,8 +45,10 @@ public class LoginController {// implements Initializable{//
         password=userPwd.getText();
          // if(name.equals(userAccount.getText())&&password==Integer.valueOf(userPwd.getText())){
                 if(name.equals(userAccount.getUserData())&&password.equals(userPwd.getUserData())){
-              Stage primaryStage = (Stage) confirm.getScene().getWindow();//将登录按钮)与Main类中的primaryStage(新窗口)绑定 并执行close()
-              primaryStage.close();//打开新的窗口 所以要关闭当前的窗口
+
+               Stage primaryStage = (Stage) confirm.getScene().getWindow();//将登录按钮)与Main类中的primaryStage(新窗口)绑定 并执行close()
+
+                    primaryStage.close();//打开新的窗口 所以要关闭当前的窗口
               Index we = new Index();//新窗口类
               Stage stage = new Stage();
               // MainApplication.stage.close();
@@ -85,17 +82,9 @@ public class LoginController {// implements Initializable{//
            alert.setHeaderText("提示");
            userAccount.setUserData("6109119099");//设置默认账号密码
            userPwd.setUserData("190321");
-           alert.setContentText("账户为："+userAccount.getUserData()+"密码为："+userPwd.getUserData());
+           alert.setContentText("ID为："+userAccount.getUserData()+"密码为："+userPwd.getUserData());
            alert.showAndWait();
    });
    }
-    public void close(ActionEvent event) throws Exception {
-        cancel.setOnAction(event1 -> {
-            userAccount.setText("");
-            userPwd.setText("");
-        });
-    }
-
-
 }
 
