@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ant-1.10.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Microsoft edge/ant-1.10.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
