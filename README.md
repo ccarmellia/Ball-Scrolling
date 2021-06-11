@@ -1,5 +1,7 @@
 # 保龄球项目
 ### A teamwork about bawling match
+## Framework
+Java+IDEA+Mysql
 ## 项目演示如下
 ### 1.登录界面
 <img src="https://github.com/ccarmellia/Ball-Scrolling/blob/master/imgs/login.png" alt="登录" width="600" height="450" />
