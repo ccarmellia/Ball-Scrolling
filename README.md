@@ -2,6 +2,6 @@
 ### A teamwork about bawling match
 ## 项目演示如下
 ### 登录界面
-![login](https://github.com/ccarmellia/Ball-Scrolling/blob/master/imgs/login.png "login")
+<img src="https://github.com/ccarmellia/Ball-Scrolling/blob/master/imgs/login.png" alt="登录" width="100" height="30"  />
 ### 找回密码
 
